@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Thesis — ML for Sleep Data — Isiah Udofia | Yale University</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/yale.svg" />
+    <meta name="theme-color" content="#00356B" />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body data-page="projects">
+    <header class="site-header" data-animate="fade">
+      <nav class="nav-shell">
+        <a class="nav-brand" href="../index.html">Isiah Udofia</a>
+        <div class="nav-links">
+          <a href="../index.html" data-nav="home">Home</a>
+          <a href="../projects.html" data-nav="projects">Projects</a>
+          <a href="../about.html" data-nav="about">About</a>
+          <a href="../contact.html" data-nav="contact">Contact</a>
+          <a href="../resume.html" data-nav="resume">Resume</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="page-wrap">
+      <section class="hero project-header card pad-xl" data-animate="fade" style="background: linear-gradient(150deg, rgba(234, 88, 12, 0.32), rgba(30, 30, 34, 0.92)); border-color: rgba(234, 88, 12, 0.35);">
+        <div>
+          <h1>B.S. Thesis — Making Sleep Data Actionable with Machine Learning</h1>
+          <p>Starting this year: bridge wearable signals and lived experience to produce evidence-backed guidance people can actually use.</p>
+          <p><strong>Advisor:</strong> Prof. Arielle Baskin-Sommers (Dept. of Psychology, Yale)</p>
+          <div class="status-chips">
+            <span>Data cleaning</span>
+            <span>Feature audits</span>
+            <span>Ridge</span>
+            <span>XGBoost</span>
+            <span>Calibration</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" data-animate="fade">
+        <div class="motivation-card card">
+        <p>
+          I’m building this thesis to <strong>turn sleep signals into guidance people can trust</strong>. Instead of chasing leaderboard scores, I’m focusing on <strong>calibrated models</strong> and an <strong>explainer constrained to peer-reviewed sleep science</strong>. The goal is product-minded rigor: transparent features, reliable feedback, and recommendations that feel usable in real life. Advised by Prof. Arielle Baskin-Sommers, I’m starting this year with data cleaning and feature audits, then moving toward baselines, calibration, validation, and a constrained explainer.
+        </p>
+        </div>
+      </section>
+
+      <section class="section card-grid thesis-grid" data-animate="fade">
+        <article class="thesis-card card">
+          <p class="section-eyebrow">Project approach</p>
+          <h3 class="project-title">Evidence-constrained models with human-readable feedback</h3>
+          <ul class="thesis-list">
+            <li>Train calibrated Ridge + XGBoost on multi-night wearable + survey features; prefer reliability over raw scores.</li>
+            <li>Two-layer design: models for accuracy + an explainer constrained to peer-reviewed sleep science.</li>
+            <li>Validate against self-reports and cognitive tasks to check real-world relevance.</li>
+            <li>Emphasize transparent features and feedback loops so people understand why a suggestion was made.</li>
+          </ul>
+        </article>
+
+        <article class="thesis-card card">
+          <p class="section-eyebrow">Semester plan</p>
+          <h3 class="project-title">Key milestones</h3>
+          <div class="milestone-grid">
+            <div class="milestone-chip">
+              <h4>Data ready</h4>
+              <p>Clean/align nights, engineer ~100–120 features, audit leakage.</p>
+            </div>
+            <div class="milestone-chip">
+              <h4>Baselines + calibration</h4>
+              <p>Ridge + XGBoost; reliability curves (ECE/Brier) and thresholds.</p>
+            </div>
+            <div class="milestone-chip">
+              <h4>Validation</h4>
+              <p>Compare to self-reports &amp; cognitive tasks; subgroup error analysis.</p>
+            </div>
+            <div class="milestone-chip">
+              <h4>Constrained explainer</h4>
+              <p>LLM narratives bound to vetted sleep sources with safety checks.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section" data-animate="fade">
+        <div class="detail-card card">
+          <p class="section-eyebrow" style="margin-bottom: 0.6rem;">Success signals</p>
+          <ul class="project-blurb" style="margin: 1rem 0 0 1.2rem; color: rgba(226,232,240,0.78);">
+            <li>Well-calibrated predictions (e.g., ECE < 0.05) with clear calibration plots.</li>
+            <li>Advisor-reviewed feature attributions that align with sleep science.</li>
+            <li>Users can accurately restate “why” behind a suggestion in brief tests.</li>
+            <li>No safety violations or off-source claims in the explainer.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div>© <span id="year">2025</span> Isiah Udofia</div>
+        <div class="footer-links">
+          <a href="mailto:isiah.udofia@yale.edu">isiah.udofia@yale.edu</a>
+          <span>973-303-6883</span>
+          <a href="https://github.com/iudofia2026" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/isiah-udofia/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

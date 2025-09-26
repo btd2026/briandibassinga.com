@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Live Translator for Discord — Isiah Udofia | Yale University</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/yale.svg" />
+    <meta name="theme-color" content="#00356B" />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body data-page="projects">
+    <header class="site-header" data-animate="fade">
+      <nav class="nav-shell">
+        <a class="nav-brand" href="../index.html">Isiah Udofia</a>
+        <div class="nav-links">
+          <a href="../index.html" data-nav="home">Home</a>
+          <a href="../projects.html" data-nav="projects">Projects</a>
+          <a href="../about.html" data-nav="about">About</a>
+          <a href="../contact.html" data-nav="contact">Contact</a>
+          <a href="../resume.html" data-nav="resume">Resume</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="page-wrap">
+      <section class="hero project-header card pad-xl" data-animate="fade">
+        <div>
+          <h1>Live Translator for Discord</h1>
+          <p>Real-time translation built natively for Discord voice calls.</p>
+          <p><a href="https://livecalltranslator.netlify.app/" target="_blank" rel="noopener">livecalltranslator.netlify.app</a></p>
+        </div>
+        <div class="project-actions">
+          <a class="btn btn-primary" href="https://livecalltranslator.netlify.app/" target="_blank" rel="noopener">Open Live Website</a>
+          <a class="btn btn-outline" href="mailto:isiah.udofia@yale.edu">Contact</a>
+        </div>
+      </section>
+
+      <section class="section discord-grid" data-animate="fade">
+        <article class="accordion-timeline" data-discord-accordion>
+          <div class="timeline-rail" aria-hidden="true"></div>
+
+          <div class="timeline-item is-open" data-key="problem">
+            <button type="button" class="timeline-trigger">
+              <span class="node" aria-hidden="true"></span>
+              <span>Problem</span>
+              <span class="caret" aria-hidden="true">›</span>
+            </button>
+            <div class="timeline-body">
+              <ul>
+                <li>Cross-language voice chats lose momentum when translation lags or lives outside Discord.</li>
+                <li>Goal: native feel, no context switching, clear in-channel visibility.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-key="constraints">
+            <button type="button" class="timeline-trigger">
+              <span class="node" aria-hidden="true"></span>
+              <span>Constraints</span>
+              <span class="caret" aria-hidden="true">›</span>
+            </button>
+            <div class="timeline-body">
+              <ul>
+                <li>&lt;250ms interim response, sub-second final translations.</li>
+                <li>Works inside Discord chat; keeps moderator controls intact.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-key="architecture">
+            <button type="button" class="timeline-trigger">
+              <span class="node" aria-hidden="true"></span>
+              <span>Architecture</span>
+              <span class="caret" aria-hidden="true">›</span>
+            </button>
+            <div class="timeline-body">
+              <p class="typing-indicator" data-typing></p>
+              <ul>
+                <li>Streaming STT (Deepgram) feeds a translation worker; inline bot posts interim + final lines.</li>
+                <li>Optional captions overlay mirrors chat feed for on-screen visibility.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-key="reliability">
+            <button type="button" class="timeline-trigger">
+              <span class="node" aria-hidden="true"></span>
+              <span>Reliability</span>
+              <span class="caret" aria-hidden="true">›</span>
+            </button>
+            <div class="timeline-body">
+              <ul>
+                <li>Reconnection guards + jitter buffers smooth dropouts.</li>
+                <li>Rate-limit backoff and interim/final dedupe reduce chat spam.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-key="privacy">
+            <button type="button" class="timeline-trigger">
+              <span class="node" aria-hidden="true"></span>
+              <span>Privacy &amp; UI</span>
+              <span class="caret" aria-hidden="true">›</span>
+            </button>
+            <div class="timeline-body">
+              <ul>
+                <li>Per-user language preferences; only opted-in voices get processed.</li>
+                <li>Overlay can be toggled per channel for high-visibility events.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-key="status">
+            <button type="button" class="timeline-trigger">
+              <span class="node" aria-hidden="true"></span>
+              <span>Status / Next</span>
+              <span class="caret" aria-hidden="true">›</span>
+            </button>
+            <div class="timeline-body">
+              <ul>
+                <li>Hardening reconnect paths, tuning translation consistency, building a room-health console.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <aside class="discord-stack detail-card card" data-animate="fade">
+          <p class="section-eyebrow">Stack</p>
+          <h3 class="project-title" style="margin: 0;">Built for live Discord contexts</h3>
+          <div class="chips" style="margin-top: 1.25rem;">
+            <span class="chip">Discord API</span>
+            <span class="chip">Deepgram STT</span>
+            <span class="chip">WebSocket</span>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div>© <span id="year">2025</span> Isiah Udofia</div>
+        <div class="footer-links">
+          <a href="mailto:isiah.udofia@yale.edu">isiah.udofia@yale.edu</a>
+          <span>973-303-6883</span>
+          <a href="https://github.com/iudofia2026" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/isiah-udofia/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
