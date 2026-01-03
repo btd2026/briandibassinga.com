@@ -5,39 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Brian DiBassinga - Creative Developer</title>
   <link rel="stylesheet" href="css/styles.css" />
-  <!-- GSAP CDN -->
+  <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
 <body>
   <div id="root">
     <div>
-      <!-- Animated Greeting SVG -->
+      <!-- Animated Greeting SVGs -->
       <div class="greeting-container">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" class="greeting-svg">
-          <defs>
-            <style>
-              .greeting-text {
-                font-family: Helvetica, Arial, sans-serif;
-                font-size: 60px;
-                font-weight: 300;
-                fill: #000;
-              }
-            </style>
-          </defs>
-
-          <!-- English: Hello -->
-          <g id="greeting-en" class="greeting-group">
-            <text x="200" y="70" text-anchor="middle" class="greeting-text">Hello</text>
+        <!-- English: HI -->
+        <svg id="greeting-en" class="greeting-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" style="opacity: 0;">
+          <g id="animate-en">
+            <line class="cls-1" x1="20" x2="20" y2="120"></line>
+            <line class="cls-1" y1="60" x2="100" y2="60"></line>
+            <line class="cls-1" x1="90" x2="90" y2="120"></line>
+            <path class="cls-1" d="M130,80 L200,80 L200,40 L130,40 L130,80"></path>
+            <line class="cls-1" x1="240" x2="240" y2="120"></line>
+            <line class="cls-1" x1="280" x2="280" y2="120"></line>
+            <path class="cls-1" d="M310,40 L380,40 L380,120 L310,120 L310,40"></path>
           </g>
+        </svg>
 
-          <!-- French: Bonjour -->
-          <g id="greeting-fr" class="greeting-group" style="opacity: 0;">
-            <text x="200" y="70" text-anchor="middle" class="greeting-text">Bonjour</text>
+        <!-- French: Bonjour -->
+        <svg id="greeting-fr" class="greeting-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 120" style="opacity: 0;">
+          <g id="animate-fr">
+            <path class="cls-thin" d="M20,40 L20,120 L60,120 L60,40 Z"></path>
+            <path class="cls-thin" d="M80,40 L80,120 L120,120 L120,100 L100,100 L10080 L120,80 L120,40 Z"></path>
+            <line class="cls-thin" x1="140" x2="140" y2="120"></line>
+            <path class="cls-thin" d="M160,40 L200,40 L200,120 L160,120 Z"></path>
+            <line class="cls-thin" x1="220" x2="220" y2="120"></line>
+            <path class="cls-thin" d="M220,40 L260,40 L260,80 Q260,100 240,100 L220,100"></path>
+            <path class="cls-thin" d="M280,40 L280,120 L320,120 L320,40 Z"></path>
+            <line class="cls-thin" x1="340" x2="340" y2="120"></line>
+            <path class="cls-thin" d="M340,40 L380,40 L380,80 Q380,100 360,100 L340,100"></path>
+            <path class="cls-thin" d="M400,40 L400,120 L420,120 L420,40 Z"></path>
           </g>
+        </svg>
 
-          <!-- Chinese: 你好 -->
-          <g id="greeting-zh" class="greeting-group" style="opacity: 0;">
-            <text x="200" y="70" text-anchor="middle" class="greeting-text" style="font-size: 64px;">你好</text>
+        <!-- Chinese: 你好 -->
+        <svg id="greeting-zh" class="greeting-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 120" style="opacity: 0;">
+          <g id="animate-zh">
+            <!-- 你 -->
+            <path class="cls-thin" d="M20,20 L100,20"></path>
+            <line class="cls-thin" x1="60" x2="60" y2="50"></line>
+            <path class="cls-thin" d="M30,70 L90,70"></path>
+            <line class="cls-thin" x1="40" x2="40" y2="100"></line>
+            <line class="cls-thin" x1="80" x2="80" y2="100"></line>
+            <line class="cls-thin" x1="30" x2="90" y2="100"></line>
+            <!-- 好 -->
+            <path class="cls-thin" d="M140,20 L220,20"></path>
+            <line class="cls-thin" x1="180" x2="180" y2="50"></line>
+            <path class="cls-thin" d="M150,70 L210,70"></path>
+            <line class="cls-thin" x1="160" x2="160" y2="100"></line>
+            <line class="cls-thin" x1="200" x2="200" y2="100"></line>
+            <line class="cls-thin" x1="150" x2="210" y2="100"></line>
           </g>
         </svg>
       </div>
@@ -74,9 +95,9 @@
           </a>
         </div>
         <div class="work">
-          <a href="projects/zen-video-agency.html">
-            <img src="assets/zen.png" alt="Zen Video Agency" />
-            <span class="link">Zen Video Agency</span>
+          <a href="projects/zen-digital-development.html">
+            <img src="assets/zen.png" alt="Zen Digital Development Agency" />
+            <span class="link">Zen Digital Development Agency</span>
             <span class="overlay"></span>
           </a>
         </div>
