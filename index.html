@@ -13,52 +13,71 @@
     <div>
       <!-- Animated Greeting SVGs -->
       <div class="greeting-container">
-        <!-- English: HI -->
-        <svg id="greeting-en" class="greeting-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" style="opacity: 0;">
+        <!-- English: Hello -->
+        <svg id="greeting-en" class="greeting-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 100" style="opacity: 0;">
           <g id="animate-en">
-            <line class="cls-1" x1="20" x2="20" y2="120"></line>
-            <line class="cls-1" y1="60" x2="100" y2="60"></line>
-            <line class="cls-1" x1="90" x2="90" y2="120"></line>
-            <path class="cls-1" d="M130,80 L200,80 L200,40 L130,40 L130,80"></path>
-            <line class="cls-1" x1="240" x2="240" y2="120"></line>
-            <line class="cls-1" x1="280" x2="280" y2="120"></line>
-            <path class="cls-1" d="M310,40 L380,40 L380,120 L310,120 L310,40"></path>
+            <!-- H -->
+            <line class="cls-1" x1="10" y1="10" x2="10" y2="90"></line>
+            <line class="cls-1" x1="10" y1="50" x2="50" y2="50"></line>
+            <line class="cls-1" x1="50" y1="10" x2="50" y2="90"></line>
+            <!-- e -->
+            <path class="cls-1" d="M70,50 L110,50 Q110,30 90,30 Q70,30 70,50 Q70,70 90,70 Q105,70 110,60"></path>
+            <!-- l -->
+            <line class="cls-1" x1="130" y1="10" x2="130" y2="90"></line>
+            <!-- l -->
+            <line class="cls-1" x1="160" y1="10" x2="160" y2="90"></line>
+            <!-- o -->
+            <ellipse class="cls-1" cx="210" cy="60" rx="30" ry="30"></ellipse>
           </g>
         </svg>
 
         <!-- French: Bonjour -->
-        <svg id="greeting-fr" class="greeting-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 120" style="opacity: 0;">
+        <svg id="greeting-fr" class="greeting-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 100" style="opacity: 0;">
           <g id="animate-fr">
-            <path class="cls-thin" d="M20,40 L20,120 L60,120 L60,40 Z"></path>
-            <path class="cls-thin" d="M80,40 L80,120 L120,120 L120,100 L100,100 L10080 L120,80 L120,40 Z"></path>
-            <line class="cls-thin" x1="140" x2="140" y2="120"></line>
-            <path class="cls-thin" d="M160,40 L200,40 L200,120 L160,120 Z"></path>
-            <line class="cls-thin" x1="220" x2="220" y2="120"></line>
-            <path class="cls-thin" d="M220,40 L260,40 L260,80 Q260,100 240,100 L220,100"></path>
-            <path class="cls-thin" d="M280,40 L280,120 L320,120 L320,40 Z"></path>
-            <line class="cls-thin" x1="340" x2="340" y2="120"></line>
-            <path class="cls-thin" d="M340,40 L380,40 L380,80 Q380,100 360,100 L340,100"></path>
-            <path class="cls-thin" d="M400,40 L400,120 L420,120 L420,40 Z"></path>
+            <!-- B -->
+            <line class="cls-1" x1="10" y1="10" x2="10" y2="90"></line>
+            <path class="cls-1" d="M10,10 Q50,10 50,30 Q50,50 10,50 Q55,50 55,70 Q55,90 10,90"></path>
+            <!-- o -->
+            <ellipse class="cls-1" cx="90" cy="60" rx="22" ry="25"></ellipse>
+            <!-- n -->
+            <line class="cls-1" x1="125" y1="35" x2="125" y2="90"></line>
+            <path class="cls-1" d="M125,50 Q125,35 145,35 Q165,35 165,50 L165,90"></path>
+            <!-- j -->
+            <line class="cls-1" x1="190" y1="35" x2="190" y2="80"></line>
+            <path class="cls-1" d="M190,80 Q190,95 175,95"></path>
+            <circle class="cls-dot" cx="190" cy="20" r="5" fill="#000"></circle>
+            <!-- o -->
+            <ellipse class="cls-1" cx="230" cy="60" rx="22" ry="25"></ellipse>
+            <!-- u -->
+            <path class="cls-1" d="M265,35 L265,70 Q265,90 285,90 Q305,90 305,70 L305,35"></path>
+            <!-- r -->
+            <line class="cls-1" x1="325" y1="35" x2="325" y2="90"></line>
+            <path class="cls-1" d="M325,55 Q325,35 345,35"></path>
           </g>
         </svg>
 
         <!-- Chinese: 你好 -->
-        <svg id="greeting-zh" class="greeting-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 120" style="opacity: 0;">
+        <svg id="greeting-zh" class="greeting-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 100" style="opacity: 0;">
           <g id="animate-zh">
-            <!-- 你 -->
-            <path class="cls-thin" d="M20,20 L100,20"></path>
-            <line class="cls-thin" x1="60" x2="60" y2="50"></line>
-            <path class="cls-thin" d="M30,70 L90,70"></path>
-            <line class="cls-thin" x1="40" x2="40" y2="100"></line>
-            <line class="cls-thin" x1="80" x2="80" y2="100"></line>
-            <line class="cls-thin" x1="30" x2="90" y2="100"></line>
-            <!-- 好 -->
-            <path class="cls-thin" d="M140,20 L220,20"></path>
-            <line class="cls-thin" x1="180" x2="180" y2="50"></line>
-            <path class="cls-thin" d="M150,70 L210,70"></path>
-            <line class="cls-thin" x1="160" x2="160" y2="100"></line>
-            <line class="cls-thin" x1="200" x2="200" y2="100"></line>
-            <line class="cls-thin" x1="150" x2="210" y2="100"></line>
+            <!-- 你 (nǐ) - simplified strokes -->
+            <line class="cls-1" x1="15" y1="20" x2="15" y2="85"></line>
+            <line class="cls-1" x1="15" y1="35" x2="30" y2="20"></line>
+            <line class="cls-1" x1="35" y1="10" x2="35" y2="45"></line>
+            <line class="cls-1" x1="25" y1="25" x2="50" y2="25"></line>
+            <line class="cls-1" x1="55" y1="15" x2="55" y2="50"></line>
+            <line class="cls-1" x1="30" y1="55" x2="60" y2="55"></line>
+            <line class="cls-1" x1="35" y1="55" x2="25" y2="90"></line>
+            <line class="cls-1" x1="55" y1="55" x2="65" y2="90"></line>
+            <!-- 好 (hǎo) - simplified strokes -->
+            <line class="cls-1" x1="100" y1="20" x2="100" y2="90"></line>
+            <line class="cls-1" x1="90" y1="35" x2="115" y2="35"></line>
+            <line class="cls-1" x1="90" y1="55" x2="115" y2="55"></line>
+            <path class="cls-1" d="M90,75 Q100,90 115,75"></path>
+            <line class="cls-1" x1="130" y1="10" x2="130" y2="50"></line>
+            <line class="cls-1" x1="120" y1="25" x2="145" y2="25"></line>
+            <line class="cls-1" x1="155" y1="15" x2="155" y2="55"></line>
+            <line class="cls-1" x1="125" y1="60" x2="165" y2="60"></line>
+            <line class="cls-1" x1="145" y1="60" x2="145" y2="90"></line>
           </g>
         </svg>
       </div>
