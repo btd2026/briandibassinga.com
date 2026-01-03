@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CPSC 490 — Geomancer: LLM Decision Making — Brian DiBassinga</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <div id="root">
+    <!-- Back Navigation -->
+    <div style="margin-bottom: 2rem;">
+      <a href="../index.html" style="font-size: 1.4rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+        <span>← Back to home</span>
+      </a>
+    </div>
+
+    <!-- Project Header -->
+    <div style="margin-bottom: 4rem;">
+      <h1 style="font-size: 4rem; font-weight: 500; margin-bottom: 1rem;">Geomancer: LLM Decision Making</h1>
+      <p style="font-size: 1.8rem; color: #666; margin-bottom: 2rem;">CPSC 490 Senior Thesis — Yale University</p>
+
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="https://github.com/btd2026/geomancer-llm-decision-making" target="_blank" class="project-link">
+          <span class="link">View on GitHub</span>
+          <span class="overlay"></span>
+        </a>
+        <a href="../assets/geomancer-report.pdf" target="_blank" class="project-link">
+          <span class="link">Read Final Report</span>
+          <span class="overlay"></span>
+        </a>
+        <a href="../assets/geomancer-poster.pdf" target="_blank" class="project-link">
+          <span class="link">View Research Poster</span>
+          <span class="overlay"></span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Tech Stack Tags -->
+    <div style="margin-bottom: 4rem;">
+      <span style="display: inline-block; padding: 0.5rem 1rem; border: 1px solid #000; margin-right: 0.5rem; margin-bottom: 0.5rem; font-size: 1.2rem;">Python</span>
+      <span style="display: inline-block; padding: 0.5rem 1rem; border: 1px solid #000; margin-right: 0.5rem; margin-bottom: 0.5rem; font-size: 1.2rem;">OpenAI GPT-4</span>
+      <span style="display: inline-block; padding: 0.5rem 1rem; border: 1px solid #000; margin-right: 0.5rem; margin-bottom: 0.5rem; font-size: 1.2rem;">LangChain</span>
+      <span style="display: inline-block; padding: 0.5rem 1rem; border: 1px solid #000; margin-right: 0.5rem; margin-bottom: 0.5rem; font-size: 1.2rem;">Pydantic</span>
+      <span style="display: inline-block; padding: 0.5rem 1rem; border: 1px solid #000; margin-right: 0.5rem; margin-bottom: 0.5rem; font-size: 1.2rem;">Few-Shot Prompting</span>
+    </div>
+
+    <!-- Abstract -->
+    <section>
+      <h2>Abstract</h2>
+      <div class="cv-work" style="border: none; padding: 1rem 0;">
+        <p style="font-size: 1.6rem; line-height: 1.6; max-width: 800px;">
+          Geomancer is a web-based tool designed to enhance human decision-making through Large Language Model (LLM) assistance. By leveraging OpenAI's GPT-4 with carefully crafted few-shot prompts and structured output validation via Pydantic, Geomancer transforms unstructured decision problems into actionable insights. The system uses a wizard-based interface to gather context, applies LLM reasoning with chain-of-thought prompting, and presents structured recommendations with confidence scores.
+        </p>
+      </div>
+    </section>
+
+    <!-- Problem Statement -->
+    <section>
+      <h2>Problem Statement</h2>
+      <div class="cv-work" style="border: none; padding: 1rem 0;">
+        <p style="font-size: 1.6rem; line-height: 1.6; max-width: 800px;">
+          Complex decision-making often involves weighing multiple factors, understanding trade-offs, and predicting outcomes. Traditional decision support systems require extensive rule engineering and struggle with nuance. LLMs offer reasoning capabilities but need proper structuring to produce consistent, actionable outputs for real-world decisions.
+        </p>
+      </div>
+    </section>
+
+    <!-- Approach -->
+    <section>
+      <h2>Technical Approach</h2>
+      <div class="cv-work" style="border: none; padding: 1rem 0;">
+        <h3 style="margin-bottom: 1rem; margin-top: 2rem;">1. Structured Prompt Engineering</h3>
+        <p style="font-size: 1.6rem; line-height: 1.6;">
+          Geomancer uses carefully designed few-shot prompts that guide the LLM through systematic decision analysis. Each prompt includes examples of desired reasoning patterns, encouraging the model to consider multiple perspectives and weigh factors explicitly.
+        </p>
+
+        <h3 style="margin-bottom: 1rem; margin-top: 2rem;">2. Pydantic Validation</h3>
+        <p style="font-size: 1.6rem; line-height: 1.6;">
+          All LLM outputs are validated against strict Pydantic schemas, ensuring structured, type-safe responses. This includes decision scores, reasoning chains, risk assessments, and action recommendations.
+        </p>
+
+        <h3 style="margin-bottom: 1rem; margin-top: 2rem;">3. Wizard-Based Interface</h3>
+        <p style="font-size: 1.6rem; line-height: 1.6;">
+          A multi-step wizard collects contextual information from users—decision type, constraints, stakeholders, and time horizon—before invoking the LLM. This structured input ensures relevant, tailored recommendations.
+        </p>
+      </div>
+    </section>
+
+    <!-- Key Features -->
+    <section>
+      <h2>Key Features</h2>
+      <div style="display: grid; gap: 1rem; margin-top: 2rem;">
+        <div class="cv-work" style="padding: 1.5rem;">
+          <h3 style="margin-bottom: 0.5rem;">Decision Context Capture</h3>
+          <p style="font-size: 1.5rem; margin: 0;">Structured inputs for decision type, available options, constraints, and stakeholder information.</p>
+        </div>
+        <div class="cv-work" style="padding: 1.5rem;">
+          <h3 style="margin-bottom: 0.5rem;">Chain-of-Thought Reasoning</h3>
+          <p style="font-size: 1.5rem; margin: 0;">LLM reasoning is made explicit, showing the step-by-step evaluation process.</p>
+        </div>
+        <div class="cv-work" style="padding: 1.5rem;">
+          <h3 style="margin-bottom: 0.5rem;">Confidence Scoring</h3>
+          <p style="font-size: 1.5rem; margin: 0;">Each recommendation includes confidence levels and risk assessments.</p>
+        </div>
+        <div class="cv-work" style="padding: 1.5rem;">
+          <h3 style="margin-bottom: 0.5rem;">Multi-Option Comparison</h3>
+          <p style="font-size: 1.5rem; margin: 0;">Side-by-side evaluation of multiple decision alternatives.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Implementation Details -->
+    <section>
+      <h2>Implementation</h2>
+      <div class="cv-work" style="border: none; padding: 1rem 0;">
+        <p style="font-size: 1.6rem; line-height: 1.6; margin-bottom: 1rem;">
+          <strong>Frontend:</strong> Clean HTML/CSS/JavaScript interface with multi-step wizard<br />
+          <strong>Backend:</strong> Python with FastAPI for serving the decision engine<br />
+          <strong>LLM Integration:</strong> OpenAI GPT-4 API with LangChain abstractions<br />
+          <strong>Validation:</strong> Pydantic models for all LLM inputs and outputs
+        </p>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section>
+      <h2>Results & Evaluation</h2>
+      <div class="cv-work" style="border: none; padding: 1rem 0;">
+        <p style="font-size: 1.6rem; line-height: 1.6;">
+          The system successfully produces structured, actionable recommendations across diverse decision scenarios including career choices, product decisions, and strategic planning. Pydantic validation catches and allows retry for malformed LLM outputs, ensuring reliability. The few-shot prompting approach significantly improves reasoning quality compared to zero-shot baselines.
+        </p>
+      </div>
+    </section>
+
+    <!-- Conclusion -->
+    <section>
+      <h2>Conclusion</h2>
+      <div class="cv-work" style="border: none; padding: 1rem 0;">
+        <p style="font-size: 1.6rem; line-height: 1.6;">
+          Geomancer demonstrates that LLMs can be effective decision-support tools when properly prompted and structured. The combination of few-shot learning, chain-of-thought reasoning, and rigorous output validation creates a system that enhances human decision-making while maintaining transparency and controllability.
+        </p>
+      </div>
+    </section>
+
+    <!-- Links Section -->
+    <section>
+      <h2>Links</h2>
+      <ul class="no-border">
+        <li>
+          <a href="https://github.com/btd2026/geomancer-llm-decision-making" target="_blank">
+            <span class="link">GitHub Repository</span>
+            <span class="overlay"></span>
+          </a>
+        </li>
+        <li>
+          <a href="../assets/geomancer-report.pdf" target="_blank">
+            <span class="link">Final Report (PDF)</span>
+            <span class="overlay"></span>
+          </a>
+        </li>
+        <li>
+          <a href="../assets/geomancer-poster.pdf" target="_blank">
+            <span class="link">Research Poster (PDF)</span>
+            <span class="overlay"></span>
+          </a>
+        </li>
+      </ul>
+    </section>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

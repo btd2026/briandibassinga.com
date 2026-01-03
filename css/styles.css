@@ -318,3 +318,25 @@ a:hover .link {
     transform: translateX(4px) !important;
   }
 }
+
+/* Project page specific styles */
+.project-link {
+  display: inline-block;
+  padding: 1rem 1.5rem;
+  border: 1px solid #000;
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  text-decoration: none;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+.project-link .link {
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.project-link:hover .link {
+  transform: translateX(5px);
+}
