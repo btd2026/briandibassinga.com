@@ -10,76 +10,132 @@
   };
 
   ready(() => {
-    // GSAP Greeting Animation - Cycle through Hello, Bonjour, 你好
+    // GSAP Greeting Animation - Cycle through Hello, Bonjour, 你好 with stroke draw effect
     const initGreetingAnimation = () => {
       const greetingEn = document.getElementById('greeting-en');
       const greetingFr = document.getElementById('greeting-fr');
       const greetingZh = document.getElementById('greeting-zh');
+      const intro = document.querySelector('.intro');
 
       if (!greetingEn || !greetingFr || !greetingZh) return;
 
       // Check for reduced motion preference
       const motionMq = window.matchMedia("(prefers-reduced-motion: reduce)");
       if (motionMq.matches) {
-        // For users who prefer reduced motion, just show English
         greetingEn.style.opacity = '1';
+        if (intro) intro.style.opacity = '1';
+        document.querySelectorAll('section').forEach(s => s.style.opacity = '1');
         return;
       }
 
-      // GSAP timeline for cycling greetings
-      const tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
+      // Helper function to set up strokes for animation
+      const setupStrokes = (svgElement) => {
+        const strokes = svgElement.querySelectorAll('line, path, ellipse, circle');
+        strokes.forEach(stroke => {
+          if (stroke.tagName === 'circle') return; // Skip filled dots
+          const length = stroke.getTotalLength ? stroke.getTotalLength() : 100;
+          stroke.style.strokeDasharray = length;
+          stroke.style.strokeDashoffset = length;
+        });
+      };
 
-      // Start with Hello (English) - fade in with scale
-      tl.fromTo(greetingEn,
-        { opacity: 0, scale: 0.8, y: 20 },
-        { opacity: 1, scale: 1, y: 0, duration: 0.8, ease: "back.out(1.7)" }
-      );
+      // Helper function to animate strokes (draw or erase)
+      const animateStrokes = (svgElement, reverse = false) => {
+        const tl = gsap.timeline();
+        const strokes = svgElement.querySelectorAll('line, path, ellipse');
 
-      // Hold English, then transition to French
-      tl.to(greetingEn,
-        { opacity: 0, scale: 1.1, duration: 0.5, ease: "power2.in" },
-        "+=2.5"
-      );
+        strokes.forEach((stroke, i) => {
+          const length = stroke.getTotalLength ? stroke.getTotalLength() : 100;
 
-      // Fade in Bonjour
-      tl.fromTo(greetingFr,
-        { opacity: 0, scale: 0.8, y: 20 },
-        { opacity: 1, scale: 1, y: 0, duration: 0.8, ease: "back.out(1.7)" },
-        "-=0.3"
-      );
+          if (reverse) {
+            // Erase: from 0 to full length
+            tl.to(stroke, {
+              strokeDashoffset: length,
+              duration: 0.4,
+              ease: "power2.in"
+            }, i * 0.05);
+          } else {
+            // Draw: from full length to 0
+            tl.to(stroke, {
+              strokeDashoffset: 0,
+              duration: 0.5,
+              ease: "power2.out"
+            }, i * 0.08);
+          }
+        });
 
-      // Hold French, then transition to Chinese
-      tl.to(greetingFr,
-        { opacity: 0, scale: 1.1, duration: 0.5, ease: "power2.in" },
-        "+=2.5"
-      );
+        return tl;
+      };
 
-      // Fade in 你好
-      tl.fromTo(greetingZh,
-        { opacity: 0, scale: 0.8, y: 20 },
-        { opacity: 1, scale: 1, y: 0, duration: 0.8, ease: "back.out(1.7)" },
-        "-=0.3"
-      );
+      // Set up all strokes initially
+      setupStrokes(greetingEn);
+      setupStrokes(greetingFr);
+      setupStrokes(greetingZh);
 
-      // Hold Chinese, then transition back to English
-      tl.to(greetingZh,
-        { opacity: 0, scale: 1.1, duration: 0.5, ease: "power2.in" },
-        "+=2.5"
-      );
+      // Master timeline for looping animation
+      const masterTl = gsap.timeline({ repeat: -1 });
 
-      // Fade back to English (completes the loop)
-      tl.fromTo(greetingEn,
-        { opacity: 0, scale: 0.8, y: 20 },
-        { opacity: 1, scale: 1, y: 0, duration: 0.8, ease: "back.out(1.7)" },
-        "-=0.3"
-      );
+      // Show English and draw it
+      masterTl.set(greetingEn, { opacity: 1 });
+      masterTl.set([greetingFr, greetingZh], { opacity: 0 });
+      masterTl.add(animateStrokes(greetingEn, false));
+
+      // Hold for 2.5 seconds
+      masterTl.to({}, { duration: 2.5 });
+
+      // Erase English
+      masterTl.add(animateStrokes(greetingEn, true));
+
+      // Transition to French
+      masterTl.set(greetingEn, { opacity: 0 });
+      masterTl.set(greetingFr, { opacity: 1 });
+      setupStrokes(greetingFr); // Reset strokes
+      masterTl.add(animateStrokes(greetingFr, false));
+
+      // Hold for 2.5 seconds
+      masterTl.to({}, { duration: 2.5 });
+
+      // Erase French
+      masterTl.add(animateStrokes(greetingFr, true));
+
+      // Transition to Chinese
+      masterTl.set(greetingFr, { opacity: 0 });
+      masterTl.set(greetingZh, { opacity: 1 });
+      setupStrokes(greetingZh); // Reset strokes
+      masterTl.add(animateStrokes(greetingZh, false));
+
+      // Hold for 2.5 seconds
+      masterTl.to({}, { duration: 2.5 });
+
+      // Erase Chinese
+      masterTl.add(animateStrokes(greetingZh, true));
+
+      // Reset for loop - hide Chinese, show English
+      masterTl.set(greetingZh, { opacity: 0 });
+      masterTl.set(greetingEn, { opacity: 1 });
+      setupStrokes(greetingEn); // Reset strokes for next loop
+
+      // Fade in intro after first greeting draws
+      gsap.to(intro, {
+        opacity: 1,
+        delay: 1.5,
+        duration: 1.5,
+        ease: "power2.out"
+      });
+
+      // Fade in sections
+      gsap.to('section', {
+        opacity: 1,
+        delay: 2.5,
+        duration: 1.5,
+        ease: "power2.out"
+      });
     };
 
     // Initialize greeting animation after GSAP is available
     if (typeof gsap !== 'undefined') {
       initGreetingAnimation();
     } else {
-      // Fallback if GSAP takes a moment to load
       window.addEventListener('load', initGreetingAnimation);
     }
 
