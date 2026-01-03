@@ -25,102 +25,116 @@
         </div>
 
         <ul class="c-tags">
-          <li class="c-tags__item"><span class="o-tag o-tag--invert">Discord API</span></li>
-          <li class="c-tags__item"><span class="o-tag o-tag--invert">Deepgram STT</span></li>
-          <li class="c-tags__item"><span class="o-tag o-tag--invert">WebSocket</span></li>
-          <li class="c-tags__item"><span class="o-tag o-tag--invert">Real-time</span></li>
+          <li class="c-tags__item"><span class="o-tag o-tag--medium o-tag--invert">Discord API</span></li>
+          <li class="c-tags__item"><span class="o-tag o-tag--medium o-tag--invert">Deepgram STT</span></li>
+          <li class="c-tags__item"><span class="o-tag o-tag--medium o-tag--invert">WebSocket</span></li>
+          <li class="c-tags__item"><span class="o-tag o-tag--medium o-tag--invert">Real-time</span></li>
         </ul>
       </div>
     </header>
 
     <div class="c-article__container">
       <!-- Sidebar -->
-      <aside class="c-article__side">
+      <div class="c-article__side">
         <p class="c-article__date">
           <time datetime="2024">2024</time>
         </p>
-        <div class="c-article__extra-info">
+        <div class="o-rich-text c-article__extra-info">
           <p><strong>Live Demo:</strong> <a href="https://livecalltranslator.netlify.app/" target="_blank">livecalltranslator.netlify.app</a></p>
         </div>
-      </aside>
+      </div>
 
       <!-- Content -->
       <div class="c-article__content g-flexible-content">
         <!-- Introduction -->
         <div class="g-flexible-content__block g-flexible-content__block--redactor">
-          <p>Cross-language voice chats lose momentum when translation lags or lives outside Discord. This project aims to bring real-time translation natively into Discord voice channels with a focus on low latency and seamless integration.</p>
-          <p>By leveraging <strong>Deepgram's streaming STT</strong> and Discord's inline bot capabilities, translations appear directly in the chat alongside the original speech—no external tabs or apps required.</p>
+          <div class="o-rich-text">
+            <p>Cross-language voice chats lose momentum when translation lags or lives outside Discord. This project aims to bring real-time translation natively into Discord voice channels with a focus on low latency and seamless integration.</p>
+            <p>By leveraging <strong>Deepgram's streaming STT</strong> and Discord's inline bot capabilities, translations appear directly in the chat alongside the original speech—no external tabs or apps required.</p>
+          </div>
         </div>
 
         <!-- The Problem -->
-        <div class="g-flexible-content__block g-flexible-content__block--heading">
-          <h2>The Problem</h2>
+        <div class="g-flexible-content__block g-flexible-content__block--heading g-flexible-content__block--heading-h2">
+          <h2 id="the-problem">The Problem</h2>
         </div>
         <div class="g-flexible-content__block g-flexible-content__block--redactor">
-          <ul>
-            <li>Cross-language voice chats lose momentum when translation lags or lives outside Discord</li>
-            <li>Existing solutions require context switching to external apps or browser tabs</li>
-            <li>High latency makes real-time conversation feel unnatural and disjointed</li>
-          </ul>
-          <p><strong>Goal:</strong> Native feel, no context switching, clear in-channel visibility with sub-second translation response.</p>
+          <div class="o-rich-text">
+            <ul>
+              <li>Cross-language voice chats lose momentum when translation lags or lives outside Discord</li>
+              <li>Existing solutions require context switching to external apps or browser tabs</li>
+              <li>High latency makes real-time conversation feel unnatural and disjointed</li>
+            </ul>
+            <p><strong>Goal:</strong> Native feel, no context switching, clear in-channel visibility with sub-second translation response.</p>
+          </div>
         </div>
 
         <!-- Architecture -->
-        <div class="g-flexible-content__block g-flexible-content__block--heading">
-          <h2>Architecture</h2>
+        <div class="g-flexible-content__block g-flexible-content__block--heading g-flexible-content__block--heading-h2">
+          <h2 id="architecture">Architecture</h2>
         </div>
         <div class="g-flexible-content__block g-flexible-content__block--redactor">
-          <p>The system uses a streaming STT service (Deepgram) that feeds a translation worker. An inline bot posts both interim and final translations directly to the chat, keeping everything native to Discord.</p>
+          <div class="o-rich-text">
+            <p>The system uses a streaming STT service (Deepgram) that feeds a translation worker. An inline bot posts both interim and final translations directly to the chat, keeping everything native to Discord.</p>
+          </div>
         </div>
 
         <!-- Technical Constraints -->
-        <div class="g-flexible-content__block g-flexible-content__block--heading">
-          <h2>Technical Constraints</h2>
+        <div class="g-flexible-content__block g-flexible-content__block--heading g-flexible-content__block--heading-h2">
+          <h2 id="technical-constraints">Technical Constraints</h2>
         </div>
         <div class="g-flexible-content__block g-flexible-content__block--redactor">
-          <ul>
-            <li><strong>&lt;250ms interim response</strong> — Users see near-instant feedback that speech is being processed</li>
-            <li><strong>Sub-second final translations</strong> — Full translations arrive quickly enough for natural conversation flow</li>
-            <li><strong>Native Discord integration</strong> — Works inside Discord chat; keeps moderator controls intact</li>
-          </ul>
+          <div class="o-rich-text">
+            <ul>
+              <li><strong>&lt;250ms interim response</strong> — Users see near-instant feedback that speech is being processed</li>
+              <li><strong>Sub-second final translations</strong> — Full translations arrive quickly enough for natural conversation flow</li>
+              <li><strong>Native Discord integration</strong> — Works inside Discord chat; keeps moderator controls intact</li>
+            </ul>
+          </div>
         </div>
 
         <!-- Reliability -->
-        <div class="g-flexible-content__block g-flexible-content__block--heading">
-          <h2>Reliability & Resilience</h2>
+        <div class="g-flexible-content__block g-flexible-content__block--heading g-flexible-content__block--heading-h2">
+          <h2 id="reliability-resilience">Reliability & Resilience</h2>
         </div>
         <div class="g-flexible-content__block g-flexible-content__block--redactor">
-          <ul>
-            <li><strong>Reconnection guards</strong> — Automatic reconnection with exponential backoff on connection loss</li>
-            <li><strong>Jitter buffers</strong> — Smooth temporary network dropouts without interrupting user experience</li>
-            <li><strong>Rate-limit backoff</strong> — Respects Discord's API limits while maintaining responsiveness</li>
-            <li><strong>Interim/final dedupe</strong> — Reduces chat spam by intelligently merging rapid successive updates</li>
-          </ul>
+          <div class="o-rich-text">
+            <ul>
+              <li><strong>Reconnection guards</strong> — Automatic reconnection with exponential backoff on connection loss</li>
+              <li><strong>Jitter buffers</strong> — Smooth temporary network dropouts without interrupting user experience</li>
+              <li><strong>Rate-limit backoff</strong> — Respects Discord's API limits while maintaining responsiveness</li>
+              <li><strong>Interim/final dedupe</strong> — Reduces chat spam by intelligently merging rapid successive updates</li>
+            </ul>
+          </div>
         </div>
 
         <!-- Privacy -->
-        <div class="g-flexible-content__block g-flexible-content__block--heading">
-          <h2>Privacy & User Control</h2>
+        <div class="g-flexible-content__block g-flexible-content__block--heading g-flexible-content__block--heading-h2">
+          <h2 id="privacy-user-control">Privacy & User Control</h2>
         </div>
         <div class="g-flexible-content__block g-flexible-content__block--redactor">
-          <ul>
-            <li><strong>Per-user language preferences</strong> — Each user sets their target language individually</li>
-            <li><strong>Opt-in by default</strong> — Only opted-in voices get processed; users control their participation</li>
-            <li><strong>Channel-level toggles</strong> — Overlay can be toggled per channel for high-visibility events</li>
-          </ul>
+          <div class="o-rich-text">
+            <ul>
+              <li><strong>Per-user language preferences</strong> — Each user sets their target language individually</li>
+              <li><strong>Opt-in by default</strong> — Only opted-in voices get processed; users control their participation</li>
+              <li><strong>Channel-level toggles</strong> — Overlay can be toggled per channel for high-visibility events</li>
+            </ul>
+          </div>
         </div>
 
         <!-- Status -->
-        <div class="g-flexible-content__block g-flexible-content__block--heading">
-          <h2>Status & Next Steps</h2>
+        <div class="g-flexible-content__block g-flexible-content__block--heading g-flexible-content__block--heading-h2">
+          <h2 id="status-next-steps">Status & Next Steps</h2>
         </div>
         <div class="g-flexible-content__block g-flexible-content__block--redactor">
-          <p>Currently in active development. Working on:</p>
-          <ul>
-            <li>Hardening reconnect paths for edge cases</li>
-            <li>Tuning translation consistency across language pairs</li>
-            <li>Building a room-health console for monitoring</li>
-          </ul>
+          <div class="o-rich-text">
+            <p>Currently in active development. Working on:</p>
+            <ul>
+              <li>Hardening reconnect paths for edge cases</li>
+              <li>Tuning translation consistency across language pairs</li>
+              <li>Building a room-health console for monitoring</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

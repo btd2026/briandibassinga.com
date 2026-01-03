@@ -25,111 +25,127 @@
         </div>
 
         <ul class="c-tags">
-          <li class="c-tags__item"><span class="o-tag o-tag--invert">Python</span></li>
-          <li class="c-tags__item"><span class="o-tag o-tag--invert">OpenAI GPT-4</span></li>
-          <li class="c-tags__item"><span class="o-tag o-tag--invert">LangChain</span></li>
-          <li class="c-tags__item"><span class="o-tag o-tag--invert">Pydantic</span></li>
-          <li class="c-tags__item"><span class="o-tag o-tag--invert">Few-Shot Prompting</span></li>
+          <li class="c-tags__item"><span class="o-tag o-tag--medium o-tag--invert">Python</span></li>
+          <li class="c-tags__item"><span class="o-tag o-tag--medium o-tag--invert">OpenAI GPT-4</span></li>
+          <li class="c-tags__item"><span class="o-tag o-tag--medium o-tag--invert">LangChain</span></li>
+          <li class="c-tags__item"><span class="o-tag o-tag--medium o-tag--invert">Pydantic</span></li>
+          <li class="c-tags__item"><span class="o-tag o-tag--medium o-tag--invert">Few-Shot Prompting</span></li>
         </ul>
       </div>
     </header>
 
     <div class="c-article__container">
       <!-- Sidebar -->
-      <aside class="c-article__side">
+      <div class="c-article__side">
         <p class="c-article__date">
           <time datetime="2024">December 2024</time>
         </p>
-        <div class="c-article__extra-info">
+        <div class="o-rich-text c-article__extra-info">
           <p><strong>Course:</strong> CPSC 490</p>
           <p><strong>Institution:</strong> Yale University</p>
           <p><strong>GitHub:</strong> <a href="https://github.com/btd2026/geomancer-llm-decision-making" target="_blank">github.com/btd2026/geomancer</a></p>
         </div>
-      </aside>
+      </div>
 
       <!-- Content -->
       <div class="c-article__content g-flexible-content">
         <!-- Abstract -->
         <div class="g-flexible-content__block g-flexible-content__block--redactor">
-          <p>Geomancer is a web-based tool designed to enhance human decision-making through Large Language Model (LLM) assistance. By leveraging OpenAI's GPT-4 with carefully crafted few-shot prompts and structured output validation via Pydantic, Geomancer transforms unstructured decision problems into actionable insights.</p>
-          <p>The system uses a wizard-based interface to gather context, applies LLM reasoning with chain-of-thought prompting, and presents structured recommendations with confidence scores.</p>
+          <div class="o-rich-text">
+            <p>Geomancer is a web-based tool designed to enhance human decision-making through Large Language Model (LLM) assistance. By leveraging OpenAI's GPT-4 with carefully crafted few-shot prompts and structured output validation via Pydantic, Geomancer transforms unstructured decision problems into actionable insights.</p>
+            <p>The system uses a wizard-based interface to gather context, applies LLM reasoning with chain-of-thought prompting, and presents structured recommendations with confidence scores.</p>
+          </div>
         </div>
 
         <!-- Problem Statement -->
-        <div class="g-flexible-content__block g-flexible-content__block--heading">
-          <h2>Problem Statement</h2>
+        <div class="g-flexible-content__block g-flexible-content__block--heading g-flexible-content__block--heading-h2">
+          <h2 id="problem-statement">Problem Statement</h2>
         </div>
         <div class="g-flexible-content__block g-flexible-content__block--redactor">
-          <p>Complex decision-making often involves weighing multiple factors, understanding trade-offs, and predicting outcomes. Traditional decision support systems require extensive rule engineering and struggle with nuance. LLMs offer reasoning capabilities but need proper structuring to produce consistent, actionable outputs for real-world decisions.</p>
+          <div class="o-rich-text">
+            <p>Complex decision-making often involves weighing multiple factors, understanding trade-offs, and predicting outcomes. Traditional decision support systems require extensive rule engineering and struggle with nuance. LLMs offer reasoning capabilities but need proper structuring to produce consistent, actionable outputs for real-world decisions.</p>
+          </div>
         </div>
 
         <!-- Technical Approach -->
-        <div class="g-flexible-content__block g-flexible-content__block--heading">
-          <h2>Technical Approach</h2>
+        <div class="g-flexible-content__block g-flexible-content__block--heading g-flexible-content__block--heading-h2">
+          <h2 id="technical-approach">Technical Approach</h2>
         </div>
         <div class="g-flexible-content__block g-flexible-content__block--redactor">
-          <p><strong>1. Structured Prompt Engineering</strong><br>
-          Geomancer uses carefully designed few-shot prompts that guide the LLM through systematic decision analysis. Each prompt includes examples of desired reasoning patterns, encouraging the model to consider multiple perspectives and weigh factors explicitly.</p>
+          <div class="o-rich-text">
+            <p><strong>1. Structured Prompt Engineering</strong><br>
+            Geomancer uses carefully designed few-shot prompts that guide the LLM through systematic decision analysis. Each prompt includes examples of desired reasoning patterns, encouraging the model to consider multiple perspectives and weigh factors explicitly.</p>
 
-          <p><strong>2. Pydantic Validation</strong><br>
-          All LLM outputs are validated against strict Pydantic schemas, ensuring structured, type-safe responses. This includes decision scores, reasoning chains, risk assessments, and action recommendations.</p>
+            <p><strong>2. Pydantic Validation</strong><br>
+            All LLM outputs are validated against strict Pydantic schemas, ensuring structured, type-safe responses. This includes decision scores, reasoning chains, risk assessments, and action recommendations.</p>
 
-          <p><strong>3. Wizard-Based Interface</strong><br>
-          A multi-step wizard collects contextual information from users—decision type, constraints, stakeholders, and time horizon—before invoking the LLM. This structured input ensures relevant, tailored recommendations.</p>
+            <p><strong>3. Wizard-Based Interface</strong><br>
+            A multi-step wizard collects contextual information from users—decision type, constraints, stakeholders, and time horizon—before invoking the LLM. This structured input ensures relevant, tailored recommendations.</p>
+          </div>
         </div>
 
         <!-- Key Features -->
-        <div class="g-flexible-content__block g-flexible-content__block--heading">
-          <h2>Key Features</h2>
+        <div class="g-flexible-content__block g-flexible-content__block--heading g-flexible-content__block--heading-h2">
+          <h2 id="key-features">Key Features</h2>
         </div>
         <div class="g-flexible-content__block g-flexible-content__block--redactor">
-          <ul>
-            <li><strong>Decision Context Capture</strong> — Structured inputs for decision type, available options, constraints, and stakeholder information</li>
-            <li><strong>Chain-of-Thought Reasoning</strong> — LLM reasoning is made explicit, showing the step-by-step evaluation process</li>
-            <li><strong>Confidence Scoring</strong> — Each recommendation includes confidence levels and risk assessments</li>
-            <li><strong>Multi-Option Comparison</strong> — Side-by-side evaluation of multiple decision alternatives</li>
-          </ul>
+          <div class="o-rich-text">
+            <ul>
+              <li><strong>Decision Context Capture</strong> — Structured inputs for decision type, available options, constraints, and stakeholder information</li>
+              <li><strong>Chain-of-Thought Reasoning</strong> — LLM reasoning is made explicit, showing the step-by-step evaluation process</li>
+              <li><strong>Confidence Scoring</strong> — Each recommendation includes confidence levels and risk assessments</li>
+              <li><strong>Multi-Option Comparison</strong> — Side-by-side evaluation of multiple decision alternatives</li>
+            </ul>
+          </div>
         </div>
 
         <!-- Implementation -->
-        <div class="g-flexible-content__block g-flexible-content__block--heading">
-          <h2>Implementation</h2>
+        <div class="g-flexible-content__block g-flexible-content__block--heading g-flexible-content__block--heading-h2">
+          <h2 id="implementation">Implementation</h2>
         </div>
         <div class="g-flexible-content__block g-flexible-content__block--redactor">
-          <ul>
-            <li><strong>Frontend:</strong> Clean HTML/CSS/JavaScript interface with multi-step wizard</li>
-            <li><strong>Backend:</strong> Python with FastAPI for serving the decision engine</li>
-            <li><strong>LLM Integration:</strong> OpenAI GPT-4 API with LangChain abstractions</li>
-            <li><strong>Validation:</strong> Pydantic models for all LLM inputs and outputs</li>
-          </ul>
+          <div class="o-rich-text">
+            <ul>
+              <li><strong>Frontend:</strong> Clean HTML/CSS/JavaScript interface with multi-step wizard</li>
+              <li><strong>Backend:</strong> Python with FastAPI for serving the decision engine</li>
+              <li><strong>LLM Integration:</strong> OpenAI GPT-4 API with LangChain abstractions</li>
+              <li><strong>Validation:</strong> Pydantic models for all LLM inputs and outputs</li>
+            </ul>
+          </div>
         </div>
 
         <!-- Results -->
-        <div class="g-flexible-content__block g-flexible-content__block--heading">
-          <h2>Results & Evaluation</h2>
+        <div class="g-flexible-content__block g-flexible-content__block--heading g-flexible-content__block--heading-h2">
+          <h2 id="results-evaluation">Results & Evaluation</h2>
         </div>
         <div class="g-flexible-content__block g-flexible-content__block--redactor">
-          <p>The system successfully produces structured, actionable recommendations across diverse decision scenarios including career choices, product decisions, and strategic planning. Pydantic validation catches and allows retry for malformed LLM outputs, ensuring reliability. The few-shot prompting approach significantly improves reasoning quality compared to zero-shot baselines.</p>
+          <div class="o-rich-text">
+            <p>The system successfully produces structured, actionable recommendations across diverse decision scenarios including career choices, product decisions, and strategic planning. Pydantic validation catches and allows retry for malformed LLM outputs, ensuring reliability. The few-shot prompting approach significantly improves reasoning quality compared to zero-shot baselines.</p>
+          </div>
         </div>
 
         <!-- Conclusion -->
-        <div class="g-flexible-content__block g-flexible-content__block--heading">
-          <h2>Conclusion</h2>
+        <div class="g-flexible-content__block g-flexible-content__block--heading g-flexible-content__block--heading-h2">
+          <h2 id="conclusion">Conclusion</h2>
         </div>
         <div class="g-flexible-content__block g-flexible-content__block--redactor">
-          <p>Geomancer demonstrates that LLMs can be effective decision-support tools when properly prompted and structured. The combination of few-shot learning, chain-of-thought reasoning, and rigorous output validation creates a system that enhances human decision-making while maintaining transparency and controllability.</p>
+          <div class="o-rich-text">
+            <p>Geomancer demonstrates that LLMs can be effective decision-support tools when properly prompted and structured. The combination of few-shot learning, chain-of-thought reasoning, and rigorous output validation creates a system that enhances human decision-making while maintaining transparency and controllability.</p>
+          </div>
         </div>
 
         <!-- Links -->
-        <div class="g-flexible-content__block g-flexible-content__block--heading">
-          <h2>Links</h2>
+        <div class="g-flexible-content__block g-flexible-content__block--heading g-flexible-content__block--heading-h2">
+          <h2 id="links">Links</h2>
         </div>
         <div class="g-flexible-content__block g-flexible-content__block--redactor">
-          <ul>
-            <li><a href="https://github.com/btd2026/geomancer-llm-decision-making" target="_blank">GitHub Repository</a></li>
-            <li><a href="../assets/geomancer-report.pdf" target="_blank">Final Report (PDF)</a></li>
-            <li><a href="../assets/geomancer-poster.pdf" target="_blank">Research Poster (PDF)</a></li>
-          </ul>
+          <div class="o-rich-text">
+            <ul>
+              <li><a href="https://github.com/btd2026/geomancer-llm-decision-making" target="_blank">GitHub Repository</a></li>
+              <li><a href="../assets/geomancer-report.pdf" target="_blank">Final Report (PDF)</a></li>
+              <li><a href="../assets/geomancer-poster.pdf" target="_blank">Research Poster (PDF)</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
