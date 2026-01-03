@@ -35,6 +35,23 @@ a {
   text-decoration: none;
 }
 
+/* Greeting Container */
+.greeting-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 120px;
+}
+
+.greeting-svg {
+  position: absolute;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+}
+
 /* Signature Container */
 .signature-container {
   width: 100%;
@@ -52,20 +69,18 @@ a {
 }
 
 /* SVG Stroke Styles */
-.cls-1 {
+.cls-1, .cls-2 {
   fill: none;
   stroke: #000;
-  stroke-width: 21px;
   stroke-miterlimit: 10;
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
+}
+
+.cls-1 {
+  stroke-width: 21px;
 }
 
 .cls-2 {
-  fill: none;
-  stroke: #000;
   stroke-width: 25px;
-  stroke-miterlimit: 10;
 }
 
 .cls-3 {
