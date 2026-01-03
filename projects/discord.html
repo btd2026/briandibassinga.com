@@ -1,182 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Live Translator for Discord — Brian DiBassinga</title>
-    <link rel="icon" type="image/svg+xml" href="../assets/yale.svg" />
-    <meta name="theme-color" content="#00356B" />
-    <meta name="description" content="Real-time translation built natively for Discord voice calls. Deepgram STT, WebSocket streaming, and inline bot integration." />
-    <link rel="stylesheet" href="../css/styles.css" />
-  </head>
-  <body data-page="projects">
-    <header class="site-header" data-animate="fade">
-      <nav class="nav-shell">
-        <a class="nav-brand" href="../index.html">Brian DiBassinga</a>
-        <div class="nav-links">
-          <a href="../index.html" data-nav="home">Home</a>
-          <a href="../projects.html" data-nav="projects">Projects</a>
-          <a href="../about.html" data-nav="about">About</a>
-          <a href="../contact.html" data-nav="contact">Contact</a>
-          <a href="../resume.html" data-nav="resume">Resume</a>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Live Translator for Discord — Brian DiBassinga</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <main class="c-article">
+    <!-- Back Navigation -->
+    <a href="../index.html" class="back-link">
+      <span>← Back to home</span>
+    </a>
+
+    <!-- Article Header -->
+    <header class="c-article__header">
+      <div class="c-article__thumbnail">
+        <img src="../assets/discord.png" alt="Live Translator for Discord" />
+      </div>
+      <div class="c-article__header-info">
+        <h1 class="c-article__title">Live Translator for Discord</h1>
+        <div class="c-article__teaser">
+          <p>Real-time translation built natively for Discord voice calls. Cross-language communication without leaving the app.</p>
         </div>
-      </nav>
+
+        <ul class="c-tags">
+          <li class="c-tags__item"><span class="o-tag o-tag--invert">Discord API</span></li>
+          <li class="c-tags__item"><span class="o-tag o-tag--invert">Deepgram STT</span></li>
+          <li class="c-tags__item"><span class="o-tag o-tag--invert">WebSocket</span></li>
+          <li class="c-tags__item"><span class="o-tag o-tag--invert">Real-time</span></li>
+        </ul>
+      </div>
     </header>
 
-    <main class="project-article">
-      <!-- Article Header -->
-      <header class="article-header" data-animate="fade">
-        <div class="article-thumbnail">
-          <img src="../assets/discord.png" alt="Live Translator for Discord" class="article-cover" />
+    <div class="c-article__container">
+      <!-- Sidebar -->
+      <aside class="c-article__side">
+        <p class="c-article__date">
+          <time datetime="2024">2024</time>
+        </p>
+        <div class="c-article__extra-info">
+          <p><strong>Live Demo:</strong> <a href="https://livecalltranslator.netlify.app/" target="_blank">livecalltranslator.netlify.app</a></p>
         </div>
-        <div class="article-header-info">
-          <h1 class="article-title">Live Translator for Discord</h1>
-          <div class="article-teaser">
-            <p>Real-time translation built natively for Discord voice calls using streaming STT and inline bot integration.</p>
-          </div>
+      </aside>
 
-          <ul class="article-tags">
-            <li class="tag-item"><span class="tag">Discord API</span></li>
-            <li class="tag-item"><span class="tag">Deepgram STT</span></li>
-            <li class="tag-item"><span class="tag">WebSocket</span></li>
+      <!-- Content -->
+      <div class="c-article__content g-flexible-content">
+        <!-- Introduction -->
+        <div class="g-flexible-content__block g-flexible-content__block--redactor">
+          <p>Cross-language voice chats lose momentum when translation lags or lives outside Discord. This project aims to bring real-time translation natively into Discord voice channels with a focus on low latency and seamless integration.</p>
+          <p>By leveraging <strong>Deepgram's streaming STT</strong> and Discord's inline bot capabilities, translations appear directly in the chat alongside the original speech—no external tabs or apps required.</p>
+        </div>
+
+        <!-- The Problem -->
+        <div class="g-flexible-content__block g-flexible-content__block--heading">
+          <h2>The Problem</h2>
+        </div>
+        <div class="g-flexible-content__block g-flexible-content__block--redactor">
+          <ul>
+            <li>Cross-language voice chats lose momentum when translation lags or lives outside Discord</li>
+            <li>Existing solutions require context switching to external apps or browser tabs</li>
+            <li>High latency makes real-time conversation feel unnatural and disjointed</li>
+          </ul>
+          <p><strong>Goal:</strong> Native feel, no context switching, clear in-channel visibility with sub-second translation response.</p>
+        </div>
+
+        <!-- Architecture -->
+        <div class="g-flexible-content__block g-flexible-content__block--heading">
+          <h2>Architecture</h2>
+        </div>
+        <div class="g-flexible-content__block g-flexible-content__block--redactor">
+          <p>The system uses a streaming STT service (Deepgram) that feeds a translation worker. An inline bot posts both interim and final translations directly to the chat, keeping everything native to Discord.</p>
+        </div>
+
+        <!-- Technical Constraints -->
+        <div class="g-flexible-content__block g-flexible-content__block--heading">
+          <h2>Technical Constraints</h2>
+        </div>
+        <div class="g-flexible-content__block g-flexible-content__block--redactor">
+          <ul>
+            <li><strong>&lt;250ms interim response</strong> — Users see near-instant feedback that speech is being processed</li>
+            <li><strong>Sub-second final translations</strong> — Full translations arrive quickly enough for natural conversation flow</li>
+            <li><strong>Native Discord integration</strong> — Works inside Discord chat; keeps moderator controls intact</li>
           </ul>
         </div>
-      </header>
 
-      <div class="article-container">
-        <div class="article-side">
-          <p class="article-date">
-            <time datetime="2024">2024</time>
-          </p>
-          <div class="article-links">
-            <a href="https://livecalltranslator.netlify.app/" target="_blank" rel="noopener" class="article-link-btn">View Live</a>
-            <a href="https://github.com/briandibassinga" target="_blank" rel="noopener" class="article-link-btn">GitHub</a>
-          </div>
+        <!-- Reliability -->
+        <div class="g-flexible-content__block g-flexible-content__block--heading">
+          <h2>Reliability & Resilience</h2>
+        </div>
+        <div class="g-flexible-content__block g-flexible-content__block--redactor">
+          <ul>
+            <li><strong>Reconnection guards</strong> — Automatic reconnection with exponential backoff on connection loss</li>
+            <li><strong>Jitter buffers</strong> — Smooth temporary network dropouts without interrupting user experience</li>
+            <li><strong>Rate-limit backoff</strong> — Respects Discord's API limits while maintaining responsiveness</li>
+            <li><strong>Interim/final dedupe</strong> — Reduces chat spam by intelligently merging rapid successive updates</li>
+          </ul>
         </div>
 
-        <div class="article-content">
-          <!-- Introduction -->
-          <div class="content-block content-block--redactor">
-            <div class="rich-text">
-              <p>Cross-language voice chats lose momentum when translation lags or lives outside Discord. This project aims to bring real-time translation natively into Discord voice channels with a focus on low latency and seamless integration.</p>
-            </div>
-          </div>
+        <!-- Privacy -->
+        <div class="g-flexible-content__block g-flexible-content__block--heading">
+          <h2>Privacy & User Control</h2>
+        </div>
+        <div class="g-flexible-content__block g-flexible-content__block--redactor">
+          <ul>
+            <li><strong>Per-user language preferences</strong> — Each user sets their target language individually</li>
+            <li><strong>Opt-in by default</strong> — Only opted-in voices get processed; users control their participation</li>
+            <li><strong>Channel-level toggles</strong> — Overlay can be toggled per channel for high-visibility events</li>
+          </ul>
+        </div>
 
-          <!-- Architecture Section -->
-          <div class="content-block content-block--heading">
-            <h2>Architecture</h2>
-          </div>
-
-          <div class="content-block content-block--redactor">
-            <div class="rich-text">
-              <p class="typing-indicator" data-typing></p>
-              <p>The system uses a streaming STT service (Deepgram) that feeds a translation worker. An inline bot posts both interim and final translations directly to the chat, keeping everything native to Discord.</p>
-            </div>
-          </div>
-
-          <!-- Timeline Section -->
-          <section class="section discord-grid" data-animate="fade">
-            <article class="accordion-timeline" data-discord-accordion>
-              <div class="timeline-rail" aria-hidden="true"></div>
-
-              <div class="timeline-item is-open" data-key="problem">
-                <button type="button" class="timeline-trigger">
-                  <span class="node" aria-hidden="true"></span>
-                  <span>Problem</span>
-                  <span class="caret" aria-hidden="true">›</span>
-                </button>
-                <div class="timeline-body">
-                  <ul>
-                    <li>Cross-language voice chats lose momentum when translation lags or lives outside Discord.</li>
-                    <li>Goal: native feel, no context switching, clear in-channel visibility.</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="timeline-item" data-key="constraints">
-                <button type="button" class="timeline-trigger">
-                  <span class="node" aria-hidden="true"></span>
-                  <span>Constraints</span>
-                  <span class="caret" aria-hidden="true">›</span>
-                </button>
-                <div class="timeline-body">
-                  <ul>
-                    <li>&lt;250ms interim response, sub-second final translations.</li>
-                    <li>Works inside Discord chat; keeps moderator controls intact.</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="timeline-item" data-key="reliability">
-                <button type="button" class="timeline-trigger">
-                  <span class="node" aria-hidden="true"></span>
-                  <span>Reliability</span>
-                  <span class="caret" aria-hidden="true">›</span>
-                </button>
-                <div class="timeline-body">
-                  <ul>
-                    <li>Reconnection guards + jitter buffers smooth dropouts.</li>
-                    <li>Rate-limit backoff and interim/final dedupe reduce chat spam.</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="timeline-item" data-key="privacy">
-                <button type="button" class="timeline-trigger">
-                  <span class="node" aria-hidden="true"></span>
-                  <span>Privacy &amp; UI</span>
-                  <span class="caret" aria-hidden="true">›</span>
-                </button>
-                <div class="timeline-body">
-                  <ul>
-                    <li>Per-user language preferences; only opted-in voices get processed.</li>
-                    <li>Overlay can be toggled per channel for high-visibility events.</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="timeline-item" data-key="status">
-                <button type="button" class="timeline-trigger">
-                  <span class="node" aria-hidden="true"></span>
-                  <span>Status / Next</span>
-                  <span class="caret" aria-hidden="true">›</span>
-                </button>
-                <div class="timeline-body">
-                  <ul>
-                    <li>Hardening reconnect paths, tuning translation consistency, building a room-health console.</li>
-                  </ul>
-                </div>
-              </div>
-            </article>
-
-            <aside class="discord-stack detail-card card" data-animate="fade">
-              <p class="section-eyebrow">Stack</p>
-              <h3 class="project-title" style="margin: 0;">Built for live Discord contexts</h3>
-              <div class="chips" style="margin-top: 1.25rem;">
-                <span class="chip">Discord API</span>
-                <span class="chip">Deepgram STT</span>
-                <span class="chip">WebSocket</span>
-              </div>
-            </aside>
-          </section>
+        <!-- Status -->
+        <div class="g-flexible-content__block g-flexible-content__block--heading">
+          <h2>Status & Next Steps</h2>
+        </div>
+        <div class="g-flexible-content__block g-flexible-content__block--redactor">
+          <p>Currently in active development. Working on:</p>
+          <ul>
+            <li>Hardening reconnect paths for edge cases</li>
+            <li>Tuning translation consistency across language pairs</li>
+            <li>Building a room-health console for monitoring</li>
+          </ul>
         </div>
       </div>
-    </main>
+    </div>
+  </main>
 
-    <footer class="footer">
-      <div class="footer-inner">
-        <div>© <span id="year">2025</span> Brian DiBassinga</div>
-        <div class="footer-links">
-          <a href="mailto:briandibassinga@gmail.com">briandibassinga@gmail.com</a>
-          <a href="https://github.com/briandibassinga" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://www.linkedin.com/in/brian-dibassinga/" target="_blank" rel="noopener">LinkedIn</a>
-        </div>
-      </div>
-    </footer>
-
-    <script src="../js/main.js" defer></script>
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
-  </body>
+  <script src="../js/main.js"></script>
+</body>
 </html>
