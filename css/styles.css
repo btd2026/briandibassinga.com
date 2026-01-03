@@ -35,37 +35,12 @@ a {
   text-decoration: none;
 }
 
-/* Greeting Container */
-.greeting-container {
+/* Hero Signature */
+#hero-signature {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  min-height: 120px;
-}
-
-.greeting-svg {
-  position: absolute;
-  width: 100%;
-  max-width: 500px;
+  max-width: 100%;
   height: auto;
-}
-
-/* Signature Container */
-.signature-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 2rem;
-}
-
-.signature-svg {
-  width: 100%;
-  max-width: 600px;
-  height: auto;
-  opacity: 0;
+  display: block;
 }
 
 /* SVG Stroke Styles */
