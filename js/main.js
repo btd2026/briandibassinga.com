@@ -143,38 +143,15 @@
     const links = document.querySelectorAll('a');
     links.forEach(link => {
       const overlay = link.querySelector('.overlay');
-      const linkText = link.querySelector('.link');
 
       if (overlay) {
         link.addEventListener('mouseenter', (e) => {
           const rect = link.getBoundingClientRect();
           const mouseY = e.clientY - rect.top;
-
-          // Set transform origin based on mouse position
           const originY = mouseY > rect.height / 2 ? 'top' : 'bottom';
           overlay.style.transformOrigin = originY;
         });
       }
-    });
-
-    // Scroll-triggered animations for sections
-    const sections = document.querySelectorAll('section');
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const sectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          sectionObserver.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    sections.forEach(section => {
-      sectionObserver.observe(section);
     });
 
     // Typing indicator (kept from original for Discord project)
