@@ -5,72 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Brian DiBassinga - Creative Developer</title>
   <link rel="stylesheet" href="css/styles.css" />
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
 <body>
   <div id="root">
     <div>
-      <!-- SVG Animated Name -->
-      <div class="name-svg-container">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 120" class="name-svg">
+      <!-- Animated Greeting SVG -->
+      <div class="greeting-container">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" class="greeting-svg">
           <defs>
             <style>
-              .cls-1 { fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 4px; }
-              .cls-2 { fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 5px; }
-              .cls-3 { fill: #fff; }
+              .greeting-text {
+                font-family: Helvetica, Arial, sans-serif;
+                font-size: 60px;
+                font-weight: 300;
+                fill: #000;
+              }
             </style>
           </defs>
-          <g id="animate">
-            <!-- B -->
-            <line class="cls-1" x1="20" y1="20" x2="20" y2="100" />
-            <path class="cls-1" d="M20,20 h40 c25,0 40,20 40,40 c0,20 -15,35 -40,35 h-25 v30 h40 c30,0 50,-25 50,-50 c0,-25 -20,-55 -75,-55" />
 
-            <!-- r -->
-            <path class="cls-1" d="M150,60 v40 h25 v-30 c0,-20 15,-25 25,-25" />
+          <!-- English: Hello -->
+          <g id="greeting-en" class="greeting-group">
+            <text x="200" y="70" text-anchor="middle" class="greeting-text">Hello</text>
+          </g>
 
-            <!-- i -->
-            <line class="cls-1" x1="220" y1="20" x2="220" y2="100" />
+          <!-- French: Bonjour -->
+          <g id="greeting-fr" class="greeting-group" style="opacity: 0;">
+            <text x="200" y="70" text-anchor="middle" class="greeting-text">Bonjour</text>
+          </g>
 
-            <!-- a -->
-            <path class="cls-1" d="M260,100 v-50 c0,-25 20,-50 45,-50 c25,0 35,25 35,50 v50 h-25 v-45 c0,-20 -5,-30 -15,-30 c-10,0 -15,10 -15,30 v45" />
-
-            <!-- n -->
-            <path class="cls-1" d="M370,60 v40 h25 v-30 c0,-20 15,-25 25,-25" />
-
-            <!-- Space -->
-
-            <!-- D -->
-            <line class="cls-1" x1="450" y1="20" x2="450" y2="100" />
-            <path class="cls-1" d="M450,20 h50 c45,0 70,35 70,55 c0,20 -25,50 -70,50 h-50 v-105" />
-
-            <!-- i -->
-            <line class="cls-1" x1="590" y1="20" x2="590" y2="100" />
-
-            <!-- B (small) -->
-            <line class="cls-1" x1="620" y1="35" x2="620" y2="100" />
-            <path class="cls-1" d="M620,35 h25 c20,0 30,15 30,30 c0,12 -8,20 -20,25 c15,3 25,12 25,30 c0,20 -15,30 -35,30 h-45 v-115" />
-
-            <!-- a -->
-            <path class="cls-1" d="M690,100 v-35 c0,-20 15,-40 35,-40 c18,0 25,18 25,40 v35 h-20 v-30 c0,-12 -5,-22 -12,-22 c-8,0 -13,10 -13,22 v30" />
-
-            <!-- s -->
-            <path class="cls-1" d="M750,100 c-6,6 -12,10 -25,10 c-18,0 -30,-12 -30,-25 c0-18 18,-22 30,-25 c12,-3 18,-6 18,-12 c0,-6 -6,-10 -15,-10 c-8,0 -14,4 -18,10 l-15,-6 c6,-12 18,-18 35,-18 c22,0 35,12 35,28 c0,22 -20,25 -35,28 c-10,2 -15,6 -15,10 c0,5 5,8 12,8 c8,0 12,-2 18,-8" />
-
-            <!-- s -->
-            <path class="cls-1" d="M795,100 c-6,6 -12,10 -25,10 c-18,0 -30,-12 -30,-25 c0-18 18,-22 30,-25 c12,-3 18,-6 18,-12 c0,-6 -6,-10 -15,-10 c-8,0 -14,4 -18,10 l-15,-6 c6,-12 18,-18 35,-18 c22,0 35,12 35,28 c0,22 -20,25 -35,28 c-10,2 -15,6 -15,10 c0,5 5,8 12,8 c8,0 12,-2 18,-8" />
-
-            <!-- i -->
-            <line class="cls-1" x1="840" y1="20" x2="840" y2="100" />
-
-            <!-- n -->
-            <path class="cls-1" d="M875,60 v40 h25 v-30 c0,-20 15,-25 25,-25" />
-
-            <!-- g -->
-            <path class="cls-1" d="M945,60 c0,-30 18,-50 45,-50 c20,0 32,12 35,30 l-22,6 c-3,-10 -8,-15 -15,-15 c-12,0 -18,12 -18,28 c0,15 6,28 18,28 c10,0 15,-6 17,-15 l22,4 c-4,18 -15,30 -35,30 c-30,0 -40,-20 -40,-50" />
-
-            <!-- Dots for i's -->
-            <circle class="cls-3" cx="220" cy="8" r="4" />
-            <circle class="cls-3" cx="590" cy="8" r="4" />
-            <circle class="cls-3" cx="840" cy="8" r="4" />
+          <!-- Chinese: 你好 -->
+          <g id="greeting-zh" class="greeting-group" style="opacity: 0;">
+            <text x="200" y="70" text-anchor="middle" class="greeting-text" style="font-size: 64px;">你好</text>
           </g>
         </svg>
       </div>

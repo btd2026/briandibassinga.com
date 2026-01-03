@@ -35,6 +35,25 @@ a {
   text-decoration: none;
 }
 
+/* Greeting Container */
+.greeting-container {
+  margin-bottom: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.greeting-svg {
+  width: 100%;
+  max-width: 500px;
+  height: 100px;
+  display: block;
+}
+
+.greeting-group {
+  transform-origin: center center;
+}
+
 /* SVG Name Container */
 .name-svg-container {
   margin-bottom: 6rem;

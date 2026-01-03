@@ -10,44 +10,77 @@
   };
 
   ready(() => {
-    // SVG Stroke Animation - Calculate path lengths and animate
-    const animateSvg = () => {
-      const svgGroup = document.getElementById('animate');
-      if (!svgGroup) return;
+    // GSAP Greeting Animation - Cycle through Hello, Bonjour, 你好
+    const initGreetingAnimation = () => {
+      const greetingEn = document.getElementById('greeting-en');
+      const greetingFr = document.getElementById('greeting-fr');
+      const greetingZh = document.getElementById('greeting-zh');
 
-      const paths = svgGroup.querySelectorAll('path, line');
-      paths.forEach((path, index) => {
-        const length = path.getTotalLength ? path.getTotalLength() : 100;
-        path.style.strokeDasharray = length;
-        path.style.strokeDashoffset = length;
-        path.style.animation = `drawStroke 1.5s ease-out ${index * 0.1}s forwards`;
-      });
+      if (!greetingEn || !greetingFr || !greetingZh) return;
+
+      // Check for reduced motion preference
+      const motionMq = window.matchMedia("(prefers-reduced-motion: reduce)");
+      if (motionMq.matches) {
+        // For users who prefer reduced motion, just show English
+        greetingEn.style.opacity = '1';
+        return;
+      }
+
+      // GSAP timeline for cycling greetings
+      const tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
+
+      // Start with Hello (English) - fade in with scale
+      tl.fromTo(greetingEn,
+        { opacity: 0, scale: 0.8, y: 20 },
+        { opacity: 1, scale: 1, y: 0, duration: 0.8, ease: "back.out(1.7)" }
+      );
+
+      // Hold English, then transition to French
+      tl.to(greetingEn,
+        { opacity: 0, scale: 1.1, duration: 0.5, ease: "power2.in" },
+        "+=2.5"
+      );
+
+      // Fade in Bonjour
+      tl.fromTo(greetingFr,
+        { opacity: 0, scale: 0.8, y: 20 },
+        { opacity: 1, scale: 1, y: 0, duration: 0.8, ease: "back.out(1.7)" },
+        "-=0.3"
+      );
+
+      // Hold French, then transition to Chinese
+      tl.to(greetingFr,
+        { opacity: 0, scale: 1.1, duration: 0.5, ease: "power2.in" },
+        "+=2.5"
+      );
+
+      // Fade in 你好
+      tl.fromTo(greetingZh,
+        { opacity: 0, scale: 0.8, y: 20 },
+        { opacity: 1, scale: 1, y: 0, duration: 0.8, ease: "back.out(1.7)" },
+        "-=0.3"
+      );
+
+      // Hold Chinese, then transition back to English
+      tl.to(greetingZh,
+        { opacity: 0, scale: 1.1, duration: 0.5, ease: "power2.in" },
+        "+=2.5"
+      );
+
+      // Fade back to English (completes the loop)
+      tl.fromTo(greetingEn,
+        { opacity: 0, scale: 0.8, y: 20 },
+        { opacity: 1, scale: 1, y: 0, duration: 0.8, ease: "back.out(1.7)" },
+        "-=0.3"
+      );
     };
 
-    // Add the keyframes dynamically for SVG
-    const style = document.createElement('style');
-    style.textContent = `
-      @keyframes drawStroke {
-        to {
-          stroke-dashoffset: 0;
-        }
-      }
-    `;
-    document.head.appendChild(style);
-
-    // Check for reduced motion preference
-    const motionMq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (!motionMq.matches) {
-      animateSvg();
+    // Initialize greeting animation after GSAP is available
+    if (typeof gsap !== 'undefined') {
+      initGreetingAnimation();
     } else {
-      // For users who prefer reduced motion, show immediately
-      const svgGroup = document.getElementById('animate');
-      if (svgGroup) {
-        const paths = svgGroup.querySelectorAll('path, line');
-        paths.forEach(path => {
-          path.style.strokeDashoffset = 0;
-        });
-      }
+      // Fallback if GSAP takes a moment to load
+      window.addEventListener('load', initGreetingAnimation);
     }
 
     // Link hover effects with mouse tracking
