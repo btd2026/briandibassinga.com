@@ -1,50 +1,74 @@
-# isiahudofia.com
+# briandibassinga.com
 
-A Yale-blue, product-minded portfolio for Isiah Udofia. The site presents a polished overview of projects, background, and contact details with a premium dark theme inspired by Yale design language.
+A clean, minimal portfolio for Brian DiBassinga featuring an animated SVG hero, article-style project pages, and a dark theme inspired by creative developer portfolios.
 
-## Live Surface
-- **Static site (`basic-site/`)** – Hand-tuned HTML/CSS/JS that mirrors the latest portfolio design. Open `basic-site/index.html` in any modern browser for the most up-to-date experience.
+## Live Site
+- **https://briandibassinga.com** – Hosted on GitHub Pages
 
-The repository also retains a Next.js App Router scaffold (`app/`, `components/`, `data/`) for future feature work, but the current production surface is the static build under `basic-site/`.
+## Design Inspiration
+- **Home page** – Inspired by [Fabio Ottaviani's portfolio](https://fabioottaviani.com/) with animated SVG name and minimal single-page layout
+- **Project pages** – Inspired by [Mamboleoo's article style](https://www.mamboleoo.be/) with blog-like structure, hero images, tags, and side metadata
 
-## Highlights
-- Hero section with animated neural gradient, CTA cluster, and quick access to GitHub/LinkedIn
-- Projects grid with branded tiles and hover motion
-- Case-study pages for Live Translator for Discord, Zen Video Agency, and the Yale thesis
-- About page with Yale-themed typography, focus-chip pills, and short narrative bio
-- Contact hub featuring a primary email CTA and action chips for phone/GitHub/LinkedIn
-- Resume viewer page with centered download call-to-action and quick links to every channel
+## Features
+- Animated SVG hero with name draw-in effect
+- Experience section with timeline-style entries
+- Selected works grid with hover overlay effects
+- Article-style project pages with:
+  - Hero images and teaser descriptions
+  - Technology tags
+  - Side metadata panel (date, external links)
+  - Rich content blocks (timelines, milestones, workflow steps)
+- Responsive navigation and footer
 
-## Folder Guide
-- `basic-site/` – Production HTML/CSS/JS, assets, and static resume PDF placeholder
-- `components/`, `app/`, `data/` – Next.js scaffold retained for future dynamic features
-- `public/` – Shared assets (favicons, logos, etc.)
-- `tailwind.config.ts`, `postcss.config.js` – Tailwind build config (used by the Next scaffold)
-
-## Quick Start (Static)
-1. `cd basic-site`
-2. Open `index.html` in a browser (double-click or use `open index.html` on macOS)
-
-## Quick Start (Next.js Scaffold)
-```bash
-npm install
-npm run dev
+## Project Structure
 ```
-Visit `http://localhost:3000` to preview the React-based version. The scaffold uses Node 20 (`.nvmrc`) and Tailwind/Framer Motion if you choose to continue development there.
+/
+├── index.html          # Home page
+├── projects.html       # Projects listing
+├── about.html          # About page
+├── contact.html        # Contact page
+├── resume.html         # Resume page
+├── css/
+│   └── styles.css      # Main stylesheet
+├── js/
+│   └── main.js         # Interactive components
+├── assets/
+│   ├── pfp.jpg         # Profile photo
+│   ├── discord.png     # Project thumbnails
+│   ├── zen.png
+│   └── thesis.png
+└── projects/
+    ├── discord.html        # Discord Translator project
+    ├── zen-video-agency.html  # Zen Video Agency project
+    └── thesis-ml.html       # ML Thesis project
+```
 
-## Editing Tips
-- Hero/CTA content: edit `basic-site/index.html`
-- About content & chips: edit `basic-site/about.html`
-- Project cards/grid spacing: edit `basic-site/projects.html` and corresponding CSS in `basic-site/css/styles.css`
-- Resume layout & metadata: edit `basic-site/resume.html`
-- Yale theme tokens, spacing, and animations: `basic-site/css/styles.css`
+## Editing
+
+### Home Page
+Edit `index.html` to update:
+- Hero intro text (line ~43-46)
+- Experience section (line ~51-56)
+- Selected works grid (line ~67-87)
+- Contact links (line ~95-98)
+
+### Project Pages
+Each project page follows the article-style template:
+- Update hero info in `.article-header-info`
+- Add content blocks in `.article-content`
+- Modify tags in `.article-tags`
+
+### Styling
+Main styles in `css/styles.css`:
+- Hero animations: lines ~1510-1574
+- Works grid: lines ~1610-1680
+- Article layout: lines ~1746-1908
+- Components (steps, milestones): lines ~1910-2003
 
 ## Deployment
-1. Host the `basic-site/` directory on any static host (Vercel, Netlify, GitHub Pages, etc.).
-2. Ensure `basic-site/assets/Udofia_Isiah_Resume.pdf` contains the latest resume.
-3. Optionally migrate changes back into the Next.js scaffold before deploying to Vercel for SSR capabilities.
+This site is deployed on **GitHub Pages** from the `main` branch. Pushing to `main` automatically updates the live site.
 
 ## Contact
-- Email: [isiah.udofia@yale.edu](mailto:isiah.udofia@yale.edu)
-- GitHub: [@iudofia2026](https://github.com/iudofia2026)
-- LinkedIn: [linkedin.com/in/isiah-udofia](https://www.linkedin.com/in/isiah-udofia/)
+- Email: [briandibassinga@gmail.com](mailto:briandibassinga@gmail.com)
+- GitHub: [@briandibassinga](https://github.com/briandibassinga)
+- LinkedIn: [linkedin.com/in/brian-dibassinga](https://www.linkedin.com/in/brian-dibassinga/)
